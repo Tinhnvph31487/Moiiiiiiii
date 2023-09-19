@@ -1,0 +1,224 @@
+*{
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+.body{
+width: 1440px;
+height: 5000px;
+border: 2px solid black;
+}
+.address{
+    position: relative;
+    width: 100%;
+    height: 57px;
+    background: black;
+    float: left;
+    display: flex;
+}
+.address p{
+    float: left;
+    color: white;
+    margin: 20px;
+    
+
+}
+.address a{
+    position: absolute;
+    
+    margin-top: 20px;
+    margin-left: 9000px;
+    color: white;
+    float: left;
+    text-decoration: none;
+}
+.address img{
+    
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.nav{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background: orange;
+}
+.nav img{
+    margin-top: 20px;
+    margin-left: 123px;
+    /* margin: 20px; */
+}
+.nav ul{
+    /* display: inline-block; */
+    display: flex;
+    margin-top: 74px;
+    
+}
+.nav ul li{
+    
+    list-style-type: none;
+}
+.nav ul a{
+    
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 34px;
+    margin-left: 50px;  
+}
+.nav ul a:hover{
+    
+  
+    color: red;
+   
+}
+
+.banner{
+    height: 500px;
+    background-image: url(Banner/d11096bc4e317c230582a72356ec0a6c.jpg);
+    background-size: 100% 100%;
+}
+.ngang{
+    position: relative;
+    height: 60px;
+    background: orange;
+    
+}
+.ngang h3{
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+text-align: center;
+}
+.ngang button{
+    width: 500px;
+   background: black;
+   margin-left: 12px;
+}
+
+.conter{
+    height: 1000px;
+    
+}
+.spMoi-banner{
+    width: 30%;
+    height: 700px;
+    float: left;
+    margin: 24px;
+    background-image: url(phukien/9733d25fad8a7cdd81275916a4a6e4e4.jpg);
+    background-size: 100% 100%;  
+}
+.jordan-banner{
+    width: 30%;
+    height: 700px;
+    float: left;
+    margin: 24px;
+    background-image: url(phukien/tải\ xuống\ \(1\).jpg);
+    background-size: 100% 100%;  
+}
+.dunk-banner{
+    width: 30%;
+    height: 700px;
+    float: left;
+    margin: 24px;
+    background-image: url(phukien/tải\ xuống\ \(2\).jpg);
+    background-size: 100% 100%;  
+}
+.spMoi{
+    display: flex;
+    width: 60%;
+    margin: 24px;
+    float: left;
+    
+
+}
+.conten{
+    width: 30%;
+    border: 3px solid black;
+    border-radius: 12px;
+}
+.conten img{
+    padding: 30px;
+    width: 196px;
+    height: 254px;
+}
+.conten h5{
+    margin: 0px auto;
+    text-align: center;
+}
+.dathang{
+    background: red;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 15px;
+    text-align: center;
+    margin-left: 90px;
+}
+
+.the{
+    margin: 20px;
+    height: 60px;
+    background: orange;
+    position: relative;
+}
+.the h3{
+    position: absolute;
+    font-weight: bold;
+    font-size: 40px;
+    
+    text-align: center;
+}
+.but{
+    width: 500px;
+    background: black;
+    
+}
+.dunk{
+    height: 900px;
+    background: red;
+   
+}
+.huongDan{
+    display: flex;
+
+}
+.suDung{
+    
+    width: 25%;
+    border: 2px solid black;
+    border-radius: 12px;
+    margin: 52px;
+
+
+}
+.suDung img{
+    padding: 28px;
+    width: 300px;
+    height: 304px;
+
+}
+.suDung h2{
+    text-align: center;
+    font-weight: bold;
+}
+.conten h4{
+    color: red;
+    margin: 9px;
+    font-weight: bold;
+    text-align: center;
+
+}
+.footer{
+    background: black;
+    height: 400px;
+    
+    position: relative;
+    /* background: black; */
+    
+}
+.footer p a{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 12px;
+}

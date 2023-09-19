@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        .stars ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .star {
+            font-size: 2em;
+            color: black;
+            display: inline-block;
+        }
+
+        .orange {
+            color: orange;
+        }
+
+        .output {
+            background-color: #ddd;
+        }
+
+        .container article {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: left;
+        }
+
+        .th img {
+            max-width: 98%;
+        }
+
+        .container aside {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: right;
+        }
+
+        .the p {
+            color: chocolate;
+        }
+
+        .the span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <div class="th" id="dh">
+                <img src="Trasvits/20230531073957-0.jpeg" alt="" width="800px" height="600px">
+            </div>
+            <button onclick="First()"></button>
+            <button onclick="Prev()"></button>
+            <button onclick="Next()"></button>
+            <button onclick="Last()"></button>
+        </article>
+        <aside>
+            <ul class="stars">
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+            </ul>
+            <div class="output"></div>
+
+            <div class="the">
+                <p>Teyana Taylor x Nike Women's Air Jordan 1 High Zoom CMFT 2 "Gym Red"
+                </p>
+            </div>
+            <p>
+                Teyana Taylor và đôi giày hợp tác AJ1 đã có mặt! Teyana Taylor × Nike WMNS Air Jordan 1 High Zoom CMFT 2 "Gym R
+                Đôi giày hợp tác với Teyana Taylor sử dụng mẫu Zoom CMFT (Zoom Comfort), kết hợp các yếu tố giúp cải thiện sự thoải mái với lớp đệm mỏng và nhẹ dựa trên Air Jordan 1. Thiết kế đặc trưng bởi swoosh có gai trên nền trắng và đỏ với hình ảnh bông hồng và swoosh đen to hơn bình thường. "TEY" được in trên lưỡi và "từ Harlem" được in ở mặt sau của vạt mắt cá chân.
+
+            </p>
+            <div class="the">
+                <p>Giá: <span>19.999.000đ</span></p>
+            </div>
+            <form action="" onsubmit="return kiemtra()">
+                <div>
+                    <label for="">Tên Người Mua</label>
+                    <input type="text" placeholder="Tên Người Mua" id="txtname">
+                    <span id="loi-txtname"></span>
+                </div><br>
+
+                <div>
+                    <label for="">Địa Chỉ Người Mua</label>
+                    <input type="text" placeholder="Địa Chỉ Người Mua" id="txtdcnm">
+                    <span id="loi-txtdcnm"></span>
+                </div> <br>
+
+
+                <div>
+                    <label for="">Thông Tin Người Mua</label>
+                    <input type="text" placeholder="Thông Tin Người Mua" id="txtttnm">
+                    <span id="loi-txtttnm"></span>
+                </div> <br>
+
+                <div>
+                    <label for="">Số Điện Thoại</label>
+                    <input type="text" placeholder="Số Điện Thoại" id="txtsdt">
+                    <span id="loi-txtsdt"></span>
+                </div> <br>
+                <input type="submit" value="Mua">
+                
+                
+            </form> <br>
+            <script>
+                slideanh = ["Trasvits/20230531073957-0.jpeg", "Trasvits/images.jpg", "Trasvits/nike-teyana-taylor-air-jordan-1-high-fj0604-601-5 (1).jpg"];
+                var indexhientai = 0;
+                //Gọi đến đối tượng cần thay đổi link ảnh
+                var img = document.querySelector("#dh img");
+                function Next() {
+                    if (indexhientai < slideanh.length - 1) {
+                        indexhientai++;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Last() {
+                    if (indexhientai > 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function First() {
+                    if (indexhientai >= slideanh.length) {
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Prev() {
+                    if (indexhientai < 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                setInterval(Next, 1000);
+                function kiemtra() {
+                    var ipname = document.getElementById("txtname");
+                    console.log(ipname);
+                    var name = txtname.value;
+                    console.log(name);
+                    var loitxtname = document.getElementById("loi-txtname");
+                    if (name.trim() == "") {
+                        loitxtname.innerHTML = "Vui Lòng Không Để Trống Phần Tên Người Mua";
+                        ipname.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtname.innerHTML = "";
+                        ipname.style.backgroundColor = "none";
+                    }
+
+                    var ipdiachi = document.getElementById("txtdcnm");
+                    console.log(ipdiachi);
+                    var diachi = txtdcnm.value;
+                    console.log(diachi);
+                    var loitxtdcnm = document.getElementById("loi-txtdcnm");
+                    if (diachi.trim() == "") {
+                        loitxtdcnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipdiachi.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtdcnm.innerHTML = "";
+                        ipdiachi.style.backgroundColor = "none";
+                    }
+
+                    var ipthongtin = document.getElementById("txtttnm");
+                    console.log(ipthongtin);
+                    var thongtin = txtttnm.value;
+                    console.log(thongtin);
+                    var loitxtttnm = document.getElementById("loi-txtttnm");
+                    if (thongtin.trim() == "") {
+                        loitxtttnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipthongtin.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtttnm.innerHTML = "";
+                        ipthongtin.style.backgroundColor = "none";
+                    }
+
+                    var ipsdt = document.getElementById("txtsdt");
+                    console.log(ipsdt);
+                    // lay gtri inputt 
+                    var sdt = ipsdt.value;
+                    console.log(sdt);
+                    var int_sdt = Number(sdt);
+                    var loitxtsdt = document.getElementById("loi-txtsdt");
+                    console.log(loitxtsdt);
+                    if (sdt.trim() == "") {
+                        loitxtsdt.innerHTML = "Vui Lòng Không Để Trống Phần Số Điện Thoại Người Mua";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (isNaN(int_sdt)) {
+                        loitxtsdt.innerHTML = "Vui Lòng Nhập Số ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (sdt.length != 10) {
+                        loitxtsdt.innerHTML = "Số Điện Thoại Không Hợp Lệ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtsdt.innerHTML = "";
+                        ipsdt.style.backgroundColor = "none";
+                    }
+                    return false;
+                    alert("Ban mua thanh cong");
+                }
+
+
+                const starsUL = document.querySelector(".stars");
+                const output = document.querySelector(".output");
+                const stars = document.querySelectorAll(".star");
+                stars.forEach((star, index) => {
+                    star.starValue = (index + 1);
+                    star.addEventListener("click", starRate);
+                });
+                function starRate(e) {
+                    output.innerHTML =
+                        `CẢM ƠN BẠN ĐÃ ĐÁNH GIÁ ${e.target.starValue} SAO CHO CHÚNG TÔI`;
+                    stars.forEach((star, index) => {
+                        if (index < e.target.starValue) {
+                            star.classList.add("orange");
+                        } else {
+                            star.classList.remove("orange");
+                        }
+                    })
+                } 
+            </script>
+    </div>
+    </aside>
+
+</body>
+
+</html>

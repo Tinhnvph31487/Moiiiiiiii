@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px auto;
+        }
+        .stars ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .star {
+            font-size: 2em;
+            color: black;
+            display: inline-block;
+        }
+
+        .orange {
+            color: orange;
+        }
+
+        .output {
+            background-color: #ddd;
+        }
+
+        .container article {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: left;
+        }
+
+        .th img {
+            max-width: 98%;
+        }
+
+        .container aside {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: right;
+        }
+
+        .the p {
+            color: chocolate;
+        }
+
+        .the span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <div class="th" id="dh">
+                <img src="20230110023332-1.jpeg" alt="" width="800px" height="600px">
+            </div>
+            <button onclick="First()">First</button>
+            <button onclick="Prev()">Prev</button>
+            <button onclick="Next()">Next</button>
+            <button onclick="Last()">Last</button>
+        </article>
+        <aside>
+            <ul class="stars">
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+            </ul>
+            <div class="output"></div>
+
+            <div class="the">
+                <p> Giày Nike Dunk Low "Reverse Panda/Red Swoosh"</p>
+            </div>
+            <p>
+                Sự phổ biến của dunks ở Nhật Bản đã có một lịch sử lâu dài, và dunks là một trong những nhân tố chính trong sự bùng nổ bình thường của Mỹ, kết hợp giữa phong cách old-school với Levi's 501 (Levi's 501) dẫn đầu đường phố vào những năm 90. Dunk, công ty tạo ra xu hướng giày thể thao để thay thế sự bùng nổ giày thể thao công nghệ cao như vậy, phát triển nhiều biến thể màu sắc và hợp tác với các thương hiệu nổi tiếng. Gần đây, các mẫu độc đáo như bộ sưu tập kỷ niệm "Ngày của người chết" kỷ niệm sự kiện này và Gói ngày lễ tình nhân (Valentine's Day Pack) được phát hành để kỷ niệm Ngày lễ tình nhân đã xuất hiện.
+            </p>
+            <div class="the">
+                <p>Giá: <span>5.650.000đ</span></p>
+            </div>
+            <form action="" onsubmit="return kiemtra()">
+                <div>
+                    <label for="">Tên Người Mua</label>
+                    <input type="text" placeholder="Tên Người Mua" id="txtname">
+                    <span id="loi-txtname"></span>
+                </div><br>
+
+                <div>
+                    <label for="">Địa Chỉ Người Mua</label>
+                    <input type="text" placeholder="Địa Chỉ Người Mua" id="txtdcnm">
+                    <span id="loi-txtdcnm"></span>
+                </div> <br>
+
+
+                <div>
+                    <label for="">Thông Tin Người Mua</label>
+                    <input type="text" placeholder="Thông Tin Người Mua" id="txtttnm">
+                    <span id="loi-txtttnm"></span>
+                </div> <br>
+
+                <div>
+                    <label for="">Số Điện Thoại</label>
+                    <input type="text" placeholder="Số Điện Thoại" id="txtsdt">
+                    <span id="loi-txtsdt"></span>
+                </div> <br>
+                <input type="submit" value="Mua">
+            </form> <br>
+            <script>
+                
+                slideanh = ["20230110023332-0.jpeg", "20221101035539-0.jpeg", "20230110023332-1.jpeg"];
+                var indexhientai = 0;
+                //Gọi đến đối tượng cần thay đổi link ảnh
+                var img = document.querySelector("#dh img");
+                function Next() {
+                    if (indexhientai < slideanh.length - 1) {
+                        indexhientai++;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Last() {
+                    if (indexhientai > 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function First() {
+                    if (indexhientai >= slideanh.length) {
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Prev() {
+                    if (indexhientai < 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                setInterval(Next, 1000);
+                function kiemtra() {
+                    var ipname = document.getElementById("txtname");
+                    console.log(ipname);
+                    var name = txtname.value;
+                    console.log(name);
+                    var loitxtname = document.getElementById("loi-txtname");
+                    if (name.trim() == "") {
+                        loitxtname.innerHTML = "Vui Lòng Không Để Trống Phần Tên Người Mua";
+                        ipname.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtname.innerHTML = "";
+                        ipname.style.backgroundColor = "none";
+                    }
+
+                    var ipdiachi = document.getElementById("txtdcnm");
+                    console.log(ipdiachi);
+                    var diachi = txtdcnm.value;
+                    console.log(diachi);
+                    var loitxtdcnm = document.getElementById("loi-txtdcnm");
+                    if (diachi.trim() == "") {
+                        loitxtdcnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipdiachi.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtdcnm.innerHTML = "";
+                        ipdiachi.style.backgroundColor = "none";
+                    }
+
+                    var ipthongtin = document.getElementById("txtttnm");
+                    console.log(ipthongtin);
+                    var thongtin = txtttnm.value;
+                    console.log(thongtin);
+                    var loitxtttnm = document.getElementById("loi-txtttnm");
+                    if (thongtin.trim() == "") {
+                        loitxtttnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipthongtin.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtttnm.innerHTML = "";
+                        ipthongtin.style.backgroundColor = "none";
+                    }
+
+                    var ipsdt = document.getElementById("txtsdt");
+                    console.log(ipsdt);
+                    // lay gtri inputt 
+                    var sdt = ipsdt.value;
+                    console.log(sdt);
+                    var int_sdt = Number(sdt);
+                    var loitxtsdt = document.getElementById("loi-txtsdt");
+                    console.log(loitxtsdt);
+                    if (sdt.trim() == "") {
+                        loitxtsdt.innerHTML = "Vui Lòng Không Để Trống Phần Số Điện Thoại Người Mua";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (isNaN(int_sdt)) {
+                        loitxtsdt.innerHTML = "Vui Lòng Nhập Số ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (sdt.length != 10) {
+                        loitxtsdt.innerHTML = "Số Điện Thoại Không Hợp Lệ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtsdt.innerHTML = "";
+                        ipsdt.style.backgroundColor = "none";
+                    }
+                    return false;
+                    alert("Ban mua thanh cong");
+                }
+
+
+                const starsUL = document.querySelector(".stars");
+                const output = document.querySelector(".output");
+                const stars = document.querySelectorAll(".star");
+                stars.forEach((star, index) => {
+                    star.starValue = (index + 1);
+                    star.addEventListener("click", starRate);
+                });
+                // function starRate(e) {
+                //     output.innerHTML =
+                //         `CẢM ƠN BẠN ĐÃ ĐÁNH GIÁ ${e.target.starValue} SAO CHO CHÚNG TÔI`;
+                //     stars.forEach((star, index) => {
+                //         if (index < e.target.starValue) {
+                //             star.classList.add("orange");
+                //         } else {
+                //             star.classList.remove("orange");
+                //         }
+                //     })
+                // } 
+            </script>
+    </div>
+    </aside>
+
+</body>
+
+</html>

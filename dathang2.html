@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        .stars ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .star {
+            font-size: 2em;
+            color: black;
+            display: inline-block;
+        }
+
+        .orange {
+            color: orange;
+        }
+
+        .output {
+            background-color: #ddd;
+        }
+
+        .container article {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: left;
+        }
+
+        .th img {
+            max-width: 98%;
+        }
+
+        .container aside {
+            min-height: 400px;
+            width: 50%;
+            background-color: white;
+            float: right;
+        }
+
+        .the p {
+            color: chocolate;
+        }
+
+        .the span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <div class="th" id="dh">
+                <img src="20230420020657-1.jpeg" alt="" width="800px" height="600px">
+            </div>
+            <button onclick="First()"></button>
+            <button onclick="Prev()"></button>
+            <button onclick="Next()"></button>
+            <button onclick="Last()"></button>
+        </article>
+        <aside>
+            <ul class="stars">
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+                <li class="star">&#10029;</li>
+            </ul>
+            <div class="output"></div>
+
+            <div class="the">
+                <p>Travis Scott × Nike WMNS Air Jordan 1 Low OG "Medium Olive"</p>
+            </div>
+            <p>
+                Từ thẻ Travis Scott x Nike, một chủ đề lớn cho mỗi lần hợp tác, Air Jordan 1 Low tiêu chuẩn dành cho nữ đầu tiên sẽ xuất hiện trong lần hợp tác này. Sản phẩm này sử dụng màu đen và trắng cho phần trên để tạo ra hình ảnh "mocha đảo ngược". Dấu swoosh ngược quen thuộc có màu ô liu và đế giữa có màu cánh buồm để tạo thêm điểm nhấn giản dị. Ở phần gót, ngoài logo đôi cánh đặc trưng của Air Jordan 1, logo mặt nguyên bản của Cactus Jack được thêu. Ngoài ra, vì màu mới lần này đã rất được mong đợi ngay từ thời điểm rò rỉ nên sẽ không thể tránh khỏi sự cạnh tranh vào thời điểm ra mắt.
+            </p>
+            <div class="the">
+                <p>Giá: <span>3.000.000.000đ</span></p>
+            </div>
+            <form action="" onsubmit="return kiemtra()">
+                <div>
+                    <label for="">Tên Người Mua</label>
+                    <input type="text" placeholder="Tên Người Mua" id="txtname">
+                    <span id="loi-txtname"></span>
+                </div><br>
+
+                <div>
+                    <label for="">Địa Chỉ Người Mua</label>
+                    <input type="text" placeholder="Địa Chỉ Người Mua" id="txtdcnm">
+                    <span id="loi-txtdcnm"></span>
+                </div> <br>
+
+
+                <div>
+                    <label for="">Thông Tin Người Mua</label>
+                    <input type="text" placeholder="Thông Tin Người Mua" id="txtttnm">
+                    <span id="loi-txtttnm"></span>
+                </div> <br>
+
+                <div>
+                    <label for="">Số Điện Thoại</label>
+                    <input type="text" placeholder="Số Điện Thoại" id="txtsdt">
+                    <span id="loi-txtsdt"></span>
+                </div> <br>
+                <input type="submit" value="Mua">
+            </form> <br>
+            <script>
+                slideanh = ["20230420020657-1.jpeg", "20230420020657-0.jpeg", "20230322025821-0.jpeg"];
+                var indexhientai = 0;
+                //Gọi đến đối tượng cần thay đổi link ảnh
+                var img = document.querySelector("#dh img");
+                function Next() {
+                    if (indexhientai < slideanh.length - 1) {
+                        indexhientai++;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Last() {
+                    if (indexhientai > 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function First() {
+                    if (indexhientai >= slideanh.length) {
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = 0;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                function Prev() {
+                    if (indexhientai < 0) {
+                        indexhientai--;
+                        img.src = slideanh[indexhientai];
+                    } else {
+                        indexhientai = slideanh.length - 1;
+                        img.src = slideanh[indexhientai];
+                    }
+                }
+                setInterval(Next, 2000);
+                function kiemtra() {
+                    var ipname = document.getElementById("txtname");
+                    console.log(ipname);
+                    var name = txtname.value;
+                    console.log(name);
+                    var loitxtname = document.getElementById("loi-txtname");
+                    if (name.trim() == "") {
+                        loitxtname.innerHTML = "Vui Lòng Không Để Trống Phần Tên Người Mua";
+                        ipname.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtname.innerHTML = "";
+                        ipname.style.backgroundColor = "none";
+                    }
+
+                    var ipdiachi = document.getElementById("txtdcnm");
+                    console.log(ipdiachi);
+                    var diachi = txtdcnm.value;
+                    console.log(diachi);
+                    var loitxtdcnm = document.getElementById("loi-txtdcnm");
+                    if (diachi.trim() == "") {
+                        loitxtdcnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipdiachi.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtdcnm.innerHTML = "";
+                        ipdiachi.style.backgroundColor = "none";
+                    }
+
+                    var ipthongtin = document.getElementById("txtttnm");
+                    console.log(ipthongtin);
+                    var thongtin = txtttnm.value;
+                    console.log(thongtin);
+                    var loitxtttnm = document.getElementById("loi-txtttnm");
+                    if (thongtin.trim() == "") {
+                        loitxtttnm.innerHTML = "Vui Lòng Không Để Trống Phần Địa Chỉ Người Mua";
+                        ipthongtin.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtttnm.innerHTML = "";
+                        ipthongtin.style.backgroundColor = "none";
+                    }
+
+                    var ipsdt = document.getElementById("txtsdt");
+                    console.log(ipsdt);
+                    // lay gtri inputt 
+                    var sdt = ipsdt.value;
+                    console.log(sdt);
+                    var int_sdt = Number(sdt);
+                    var loitxtsdt = document.getElementById("loi-txtsdt");
+                    console.log(loitxtsdt);
+                    if (sdt.trim() == "") {
+                        loitxtsdt.innerHTML = "Vui Lòng Không Để Trống Phần Số Điện Thoại Người Mua";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (isNaN(int_sdt)) {
+                        loitxtsdt.innerHTML = "Vui Lòng Nhập Số ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else if (sdt.length != 10) {
+                        loitxtsdt.innerHTML = "Số Điện Thoại Không Hợp Lệ";
+                        ipsdt.style.backgroundColor = "yellow";
+                    } else {
+                        loitxtsdt.innerHTML = "";
+                        ipsdt.style.backgroundColor = "none";
+                    }
+                    return false;
+                    alert("Ban mua thanh cong");
+                }
+
+
+                const starsUL = document.querySelector(".stars");
+                const output = document.querySelector(".output");
+                const stars = document.querySelectorAll(".star");
+                stars.forEach((star, index) => {
+                    star.starValue = (index + 1);
+                    star.addEventListener("click", starRate);
+                });
+                function starRate(e) {
+                    output.innerHTML =
+                        `CẢM ƠN BẠN ĐÃ ĐÁNH GIÁ ${e.target.starValue} SAO CHO CHÚNG TÔI`;
+                    stars.forEach((star, index) => {
+                        if (index < e.target.starValue) {
+                            star.classList.add("orange");
+                        } else {
+                            star.classList.remove("orange");
+                        }
+                    })
+                } 
+            </script>
+    </div>
+    </aside>
+
+</body>
+
+</html>
